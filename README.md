@@ -1,5 +1,4 @@
 # Rest API de Exemplo usando Spring Boot e Postgres
-<br>
 
 # Como rodar a API
 
@@ -28,8 +27,8 @@ Passos
 - **URL:** `/tasks`
 - **Method:** `GET`
 - **Parameters:**
-    - `createdDate`**:** Filtra tarefas por data criada (format: yyyy-MM-dd)
-    - `dueDate`**:** Filtra tarefas por data de vencimento (format: yyyy-MM-dd)
+    - `createdDate`**:** Filtra tarefas por data criada (formato: yyyy-MM-dd)
+    - `dueDate`**:** Filtra tarefas por data de vencimento (formato: yyyy-MM-dd)
     - `status`**:** Filtra tarefas por status (PENDING, PROGRESS, COMPLETED)
 
 - **Response:**
@@ -133,7 +132,7 @@ Passos
         - `description` (string): Nova descrição da tarefa.
         - `dueDate` (string): Nova data de vencimento da tarefa (formato: yyyy-MM-dd)
 - **Response:**
-    - **Status:** 200 Created
+    - **Status:** 200 OK
     - **Body:** Objeto JSON da tarefa atualizada
 
 - **Exemplo Request:**
