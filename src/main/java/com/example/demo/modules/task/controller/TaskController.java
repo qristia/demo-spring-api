@@ -24,6 +24,14 @@ public class TaskController {
     @Resource
     private TaskRepository taskRepository;
 
+    @GetMapping(value = "{id}")
+    public Task getTaskById(@PathVariable("id") Integer id) {
+        Task task = this.taskRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Task not found"));
+        
+        return task;
+    }
+
     @GetMapping
     public List<Task> getAllFiltered(
             @RequestParam(value = "createdDate", required = false)
@@ -60,7 +68,7 @@ public class TaskController {
     @PatchMapping("{id}")
     public Task update(@PathVariable("id") Integer id, @RequestBody UpdateTaskDto updatedTask) {
         Task task = this.taskRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "task not found"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Task not found"));
 
         if (updatedTask.getDueDate() != null) {
             if (Utils.isBeforeDate(updatedTask.getDueDate(), task.getCreatedDate())) {
